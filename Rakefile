@@ -6,9 +6,12 @@ desc "Run all specs"
 Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList['spec/**/*_spec.rb']
   t.spec_opts = ['--options', 'spec/spec.opts']
-#  unless ENV['NO_RCOV']
-#    t.rcov = true
-#    t.rcov_dir = '../doc/output/coverage'
-#    t.rcov_opts = ['--exclude', 'spec\/spec,bin\/spec,examples,\/var\/lib\/gems,\/Library\/Ruby,\.autotest']
-#  end
 end
+
+desc "Run all stories"
+task :stories do
+  ruby "stories/all.rb --colour --format plain"
+end
+
+desc "Run all test and stories"
+task :default => [:spec, :stories]

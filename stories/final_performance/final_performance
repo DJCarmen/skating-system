@@ -1,0 +1,25 @@
+Story: Scrutineering a final round dance
+
+  As a scrutineer
+  I want to scrutineer a final round
+  So that I can tell who won.
+
+  Scenario:  clear cut case
+
+    Given  couples 101, 102, 103, 104, 105, 106
+    And judges A, B, C, D, E
+    
+    When couple 101 gets 1, 1, 1, 1, 1
+     And couple 102 gets 2, 2, 2, 2, 2
+     And couple 103 gets 3, 3, 3, 3, 3
+     And couple 104 gets 4, 4, 4, 4, 4
+     And couple 105 gets 5, 5, 5, 5, 5
+     And couple 106 gets 6, 6, 6, 6, 6
+     And I compute the results
+     
+    Then couple 101 is in place 1
+     And couple 102 is in place 2
+     And couple 103 is in place 3
+     And couple 104 is in place 4
+     And couple 105 is in place 5
+     And couple 106 is in place 6
