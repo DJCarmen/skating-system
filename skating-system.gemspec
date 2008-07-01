@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
     s.platform  =   Gem::Platform::RUBY
-    s.name      =   "skating_system"
+    s.name      =   "skating-system"
     s.version   =   "0.0.1"
     s.author    =   "Laurie Young"
     s.email     =   "skating_system@wildfalcon.com"
