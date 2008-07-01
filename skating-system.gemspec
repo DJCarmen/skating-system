@@ -1,4 +1,3 @@
-require 'rake'
 
 Gem::Specification.new do |s|
     s.platform  =   Gem::Platform::RUBY
@@ -7,7 +6,8 @@ Gem::Specification.new do |s|
     s.author    =   "Laurie Young"
     s.email     =   "skating_system@wildfalcon.com"
     s.summary   =   "Implemetation of the skating system."
-    s.files     =   Rake::FileList['lib/**/*.rb', 'spec/**/*'].to_a
+    s.files     =   ['lib/skating_system.rb', 'lib/skating_system/scorer.rb', 'lib/skating_system/performance_results.rb',
+                    'spec/spec.opts', 'spec/spec_helper.rb', 'spec/spec/scorer_spec.rb', 'spec/spec/performance_results_spec.rb']
     s.require_path  =   "lib"
     s.autorequire   =   "skating_system"
     s.has_rdoc  =   true
