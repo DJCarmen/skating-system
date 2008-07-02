@@ -1,36 +1,34 @@
 steps_for(:scrutineering_a_final_performance) do
 
   class Judges
-    def initialize(*letters)
+    def initialize(letters)
       @judge_letters = letters
     end
     
-    def hashed_marks(*marks)
+    def hashed_marks(marks)
       h = {}
       @judge_letters.each_with_index do |judge, index|
         h[judge]=marks[index].to_i
       end
       h
     end
+  end
 
-end
 
-
-  Given "couples $one, $two, $three, $four, $five, $six" do |one, two, three, four, five, six|
-    couples = [one, two, three, four, five, six]
+  Given /couples ((?:(?:\d+)(?:, )?)+)/ do |numbers|
+    couples = numbers.split(", ")
     @couples_marks = { }
     couples.each do |c|
-     @couples_marks[c]={}
+      @couples_marks[c]={}
     end
-
   end
 
-  Given "judges $a, $b, $c, $d, $e" do |a, b, c, d, e|
-    @judges = Judges.new(a,b,c,d,e)
+  Given /judges ((?:(?:\w)(?:, )?)+)/ do |letters|
+    @judges = Judges.new(letters.split(", "))
   end
 
-  When "couple $number gets $a, $b, $c, $d, $e" do |number, a, b, c, d, e|
-    @couples_marks[number]=@judges.hashed_marks(a,b,c,d,e)
+  When /couple (\d+) gets ((?:(?:\d+)(?:, )?)+)/ do |number, marks|
+    @couples_marks[number]=@judges.hashed_marks(marks.split(", "))
   end
 
   When "I compute the results" do

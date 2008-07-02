@@ -18,7 +18,7 @@ module SkatingSystem
     def sum_marks(entree, position)
       sum=0
       @marks[entree].each do |judge, place|
-        sum += place if place <= position
+        sum += place if place <= position 
       end
       sum
     end
@@ -37,7 +37,7 @@ module SkatingSystem
         sorted_candidate = candidates(place).sort do |entree1, entree2| 
           comparator = @tally[entree2][place] <=> @tally[entree1][place] 
           if comparator==0
-            comparator = sum_marks(entree2, place) <=> sum_marks(entree1, place) 
+            comparator = sum_marks(entree1, place) <=> sum_marks(entree2, place) 
           end 
           comparator
         end
