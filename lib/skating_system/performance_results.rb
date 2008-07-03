@@ -15,6 +15,22 @@ module SkatingSystem
       end
     end
     
+    def ranking
+      return @ranking if @ranking
+      @ranking =SkatingSystem::Ranking.new
+      @marks.each do |entree, data|
+         @ranking.add(data[:result], entree)
+      end
+      @ranking
+    end
+    
+    def [](key)
+      @marks[key]
+    end
+
+    
+    
+    private
     def sum_marks(entree, position)
       sum=0
       @marks[entree].each do |judge, place|
@@ -59,12 +75,7 @@ module SkatingSystem
       end
       candidates
     end
-
-    def [](key)
-      @marks[key]
-    end
-
-    private
+    
     #Tallys the number of judges who marked each entree in each place or heigher
     # and writes the results to @tally
     # eg given the results
