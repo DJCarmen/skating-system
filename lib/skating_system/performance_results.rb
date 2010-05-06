@@ -15,6 +15,7 @@ module SkatingSystem
       end
     end
     
+    #Generate the ranking table for this performance
     def ranking
       return @ranking if @ranking
       @ranking =SkatingSystem::Ranking.new
