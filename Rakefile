@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "skating-system"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "Dancesport skating system implementation"
+    gem.description = %Q{Convert judges scores from a dance-competition into results}
     gem.email = "laurie@wildfalcon.com"
     gem.homepage = "http://github.com/wildfalcon/skating-system"
     gem.authors = ["Wildfalcon"]
