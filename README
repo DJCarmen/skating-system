@@ -3,6 +3,22 @@ Skating System
 
 Provides an implementation of the skating system used for scoring dance comeptitions, as well as a few other types of competition.
 
+Usage
+------
+
+First create a hash of the judges marks
+@couples_marks = { @entree1=>{@judge1=>1, @judge2=>1, @judge3=>3 },
+                   @entree2=>{@judge1=>2, @judge2=>3, @judge3=>2 },
+                   @entree3=>{@judge1=>3, @judge2=>2, @judge3=>1 }} 
+
+
+Create a new PerformanceResults object, and then call its score method
+@performance_resuts = SkatingSystem::PerformanceResults.new	
+@performance_resuts.score(@couples_marks)
+Then you can access the ranking for the couples via
+@performance_resuts.ranking.should be(@ranking)
+
+
 The skating system is as follows:
 
 
