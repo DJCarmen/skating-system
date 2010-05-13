@@ -1,7 +1,6 @@
 module SkatingSystem
   class Round
 
-    
     def initialize(couples)
       @couples = couples.map{|num| Couple.new(num)}
     end
@@ -16,14 +15,12 @@ module SkatingSystem
     def add_recalls(judge, dance, couples)
       couples.each do |number|
         couple = find_couple(number)
-        puts number
-        raise couples.inspect unless couple
         couple.add_recall(judge, dance)
       end
     end
     
     def couples_recalled
-      @couples.sort{|a, b| a.recalls <=> b.recalls}[0..@recall_count]
+      @couples.sort{|a, b| b.recalls <=> a.recalls}[0...@recall_count]
     end
     
     def final=(is_final)
