@@ -1,10 +1,9 @@
-dir = File.dirname(__FILE__)
-lib_path = File.expand_path("#{dir}/../lib")
-$LOAD_PATH.unshift lib_path unless $LOAD_PATH.include?(lib_path)
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
-require 'rubygems'
+
+
 require 'skating_system'
-require 'ruby-debug'
 
 Spec::Runner.configure do |config|
 
