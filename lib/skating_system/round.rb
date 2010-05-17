@@ -1,10 +1,37 @@
 module SkatingSystem
   class Round
+    attr_reader :name
 
-    def initialize(couples)
-      @couples = couples.map{|num| Couple.new(num)}
+    def initialize(name)
+      @name = name
     end
     
+    def add_couple(number)
+      @couples ||= []
+      @couples << Couple.new(number)
+    end
+    
+    def couple_numbers
+      @couples.map{|c| c.number}
+    end
+    
+    def add_judge(letter)
+      @judges ||= []
+      @judges << Judge.new(letter)
+    end
+    
+    def judge_letters
+      @judges.map{|j| j.letter}
+    end
+    
+    
+    
+    
+    
+    
+    
+    
+        
     def add_judges(judges)
     end
     
